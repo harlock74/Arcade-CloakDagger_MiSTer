@@ -1,0 +1,50 @@
+<misterromdescription>
+    <n>Cloak &amp; Dagger (rev 5)</n>
+    <region>World</region>
+    <homebrew>no</homebrew>
+    <bootleg>no</bootleg>
+    <year>1983</year>
+    <manufacturer>Atari</manufacturer>
+    <category>Shooter</category>
+    <setname>cloak</setname>
+    <parent>cloak</parent>
+    <rbf>CloakAndDagger</rbf>
+    <resolution>15kHz</resolution>
+    <rotation>horizontal</rotation>
+    <players>2 (alternating)</players>
+    <joystick>8-way</joystick>
+    <special_controls>Twin stick</special_controls>
+    <num_buttons>5</num_buttons>
+    <button_names>Fire Left,Fire Right,Fire Up,Fire Down,Igniter</button_names>
+
+    <rom index="0" zip="cloak.zip" md5="none">
+        <!-- Master CPU: 0x0C000 bytes -->
+        <part name="136023-501.bin" crc="c2dbef1b"/>
+        <part name="136023-502.bin" crc="316d0c7b"/>
+        <part name="136023-503.bin" crc="b9c291a6"/>
+        <part name="136023-504.bin" crc="d014a1c0"/>
+
+        <!-- Slave CPU: 0x0E000 bytes -->
+        <part name="136023-509.bin" crc="46c021a4"/>
+        <part name="136023-510.bin" crc="8c9cf017"/>
+        <part name="136023-511.bin" crc="66fd8a34"/>
+        <part name="136023-512.bin" crc="48c8079e"/>
+        <part name="136023-513.bin" crc="13f1cbab"/>
+        <part name="136023-514.bin" crc="6f8c7991"/>
+        <part name="136023-515.bin" crc="835438a0"/>
+
+        <!-- Playfield graphics: 0x02000 bytes -->
+        <part name="136023-105.bin" crc="ee443909"/>
+        <part name="136023-106.bin" crc="d708b132"/>
+
+        <!-- Motion-object graphics: 0x02000 bytes -->
+        <part name="136023-107.bin" crc="c42c84a4"/>
+        <part name="136023-108.bin" crc="4fe13d58"/>
+
+        <!-- Vertical timing PROM: 0x00100 bytes -->
+        <part name="136023-116.3n" crc="ef2668e5"/>
+    </rom>
+
+    <remark>Experimental schematic-driven core. See Readme.md.</remark>
+    <mratimestamp>20260621000000</mratimestamp>
+</misterromdescription>
