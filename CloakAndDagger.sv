@@ -229,7 +229,7 @@ localparam CONF_STR = {
 	"OA,Self Test,Off,On;",
 	"-;",
 	"R0,Reset;",
-	"J1,Fire Left,Fire Right,Fire Up,Fire Down,Igniter,Start 1P,Start 2P,Coin;",
+	"J1,Fire Left,Fire Right,Fire Up,Fire Down,Igniter;",
 	"V,v",`BUILD_DATE 
 };
 
@@ -292,11 +292,15 @@ cloak_core core
 	.reset(reset),
 	.joystick_0(joystick_0),
 	.joystick_1(joystick_1),
-	.coin(joystick_0[11]),
-	.service(status[9]),
+	.fire1(joystick_0[8]),
+	.fire2(1'b0),
+	.coin_r(joystick_0[11]),
+	.coin_l(joystick_1[11]),
+	.coin_aux(status[9]),
+	.cocktail(1'b0),
 	.start1(joystick_0[9]),
 	.start2(joystick_0[10]),
-	.test(status[10]),
+	.self_test(status[10]),
 	.dips(dips),
 	.ioctl_addr(ioctl_addr),
 	.ioctl_data(ioctl_data),
