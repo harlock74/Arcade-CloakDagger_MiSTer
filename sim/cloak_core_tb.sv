@@ -163,6 +163,21 @@ integer motion_buffer_d3_matches;
 integer motion_buffer_write_samples;
 integer motion_buffer_render_write_samples;
 integer motion_buffer_clear_write_samples;
+integer motion_buffer_schematic_we_samples;
+integer motion_buffer_bridge_we_overlap_samples;
+integer motion_buffer_bridge_only_we_samples;
+integer motion_buffer_schematic_only_we_samples;
+integer motion_buffer_schematic_only_blank_samples;
+integer motion_buffer_schematic_only_render_samples;
+integer motion_buffer_schematic_only_visible_samples;
+integer motion_buffer_9t_clk_samples;
+integer motion_buffer_9t_we_overlap_samples;
+integer motion_buffer_9t_bridge_overlap_samples;
+integer motion_buffer_9t_blank_samples;
+integer motion_buffer_9t_visible_samples;
+integer motion_buffer_control_known_samples;
+integer motion_buffer_cs_oe_active_samples;
+integer motion_buffer_cs_oe_inactive_samples;
 integer motion_buffer_data_nonzero_samples;
 integer motion_buffer_left_data_nonzero_samples;
 integer motion_buffer_right_data_nonzero_samples;
@@ -175,6 +190,24 @@ integer motion_buffer_8m_feedback_matches;
 integer motion_buffer_addr_known_samples;
 integer motion_buffer_addr_expected_matches;
 integer motion_buffer_addr_adjacent_matches;
+integer motion_buffer_counter_addr_known_samples;
+integer motion_buffer_counter_addr_exact_matches;
+integer motion_buffer_counter_addr_prev_matches;
+integer motion_buffer_counter_addr_next_matches;
+integer motion_buffer_counter_addr_cross_matches;
+integer motion_buffer_counter_left_load_active;
+integer motion_buffer_counter_right_load_active;
+integer motion_buffer_counter_left_clear_active;
+integer motion_buffer_counter_right_clear_active;
+integer motion_buffer_moh_known_samples;
+integer motion_buffer_moh_left_load_bsm;
+integer motion_buffer_moh_right_load_bsm;
+integer motion_buffer_moh_left_clear_bsm;
+integer motion_buffer_moh_right_clear_bsm;
+integer motion_buffer_moh_left_load_render;
+integer motion_buffer_moh_right_load_render;
+integer motion_buffer_moh_left_clear_render;
+integer motion_buffer_moh_right_clear_render;
 integer motion_buffer_raw_lb_nonzero_samples;
 integer motion_buffer_raw_b1h_nonzero;
 integer motion_buffer_raw_b1h_n_nonzero;
@@ -211,10 +244,23 @@ integer motion_buffer_compat_d1_missing_mem_other_side_prev_match;
 integer motion_buffer_compat_d1_missing_mem_other_side_next_match;
 integer motion_buffer_compat_d1_missing_selected_window_match;
 integer motion_buffer_compat_d1_missing_other_window_match;
+integer motion_buffer_compat_d1_missing_8k_mbj;
+integer motion_buffer_compat_d1_missing_8k_feedback;
+integer motion_buffer_compat_d1_missing_8m_mbj;
+integer motion_buffer_compat_d1_missing_8m_feedback;
+integer motion_buffer_compat_d1_missing_ivdsh_high;
+integer motion_buffer_compat_d1_missing_ivdbh_high;
 integer motion_buffer_mbit_nonzero_compat_now;
 integer motion_buffer_mbit_nonzero_compat_d1;
 integer motion_buffer_mbit_nonzero_compat_d2;
 integer motion_buffer_mbit_nonzero_compat_d3;
+integer motion_buffer_single_addr_nonzero_samples;
+integer motion_buffer_single_addr_now_matches;
+integer motion_buffer_single_addr_d1_matches;
+integer motion_buffer_single_addr_d2_matches;
+integer motion_buffer_single_addr_d3_matches;
+integer motion_buffer_single_addr_d1_missing;
+integer motion_buffer_single_addr_fills_bridge_missing;
 integer motion_buffer_sel_b1h_nonzero;
 integer motion_buffer_sel_b1h_matches;
 integer motion_buffer_sel_b1h_n_nonzero;
@@ -368,6 +414,21 @@ always @(posedge clk) begin
         motion_buffer_write_samples <= 0;
         motion_buffer_render_write_samples <= 0;
         motion_buffer_clear_write_samples <= 0;
+        motion_buffer_schematic_we_samples <= 0;
+        motion_buffer_bridge_we_overlap_samples <= 0;
+        motion_buffer_bridge_only_we_samples <= 0;
+        motion_buffer_schematic_only_we_samples <= 0;
+        motion_buffer_schematic_only_blank_samples <= 0;
+        motion_buffer_schematic_only_render_samples <= 0;
+        motion_buffer_schematic_only_visible_samples <= 0;
+        motion_buffer_9t_clk_samples <= 0;
+        motion_buffer_9t_we_overlap_samples <= 0;
+        motion_buffer_9t_bridge_overlap_samples <= 0;
+        motion_buffer_9t_blank_samples <= 0;
+        motion_buffer_9t_visible_samples <= 0;
+        motion_buffer_control_known_samples <= 0;
+        motion_buffer_cs_oe_active_samples <= 0;
+        motion_buffer_cs_oe_inactive_samples <= 0;
         motion_buffer_data_nonzero_samples <= 0;
         motion_buffer_left_data_nonzero_samples <= 0;
         motion_buffer_right_data_nonzero_samples <= 0;
@@ -380,6 +441,24 @@ always @(posedge clk) begin
         motion_buffer_addr_known_samples <= 0;
         motion_buffer_addr_expected_matches <= 0;
         motion_buffer_addr_adjacent_matches <= 0;
+        motion_buffer_counter_addr_known_samples <= 0;
+        motion_buffer_counter_addr_exact_matches <= 0;
+        motion_buffer_counter_addr_prev_matches <= 0;
+        motion_buffer_counter_addr_next_matches <= 0;
+        motion_buffer_counter_addr_cross_matches <= 0;
+        motion_buffer_counter_left_load_active <= 0;
+        motion_buffer_counter_right_load_active <= 0;
+        motion_buffer_counter_left_clear_active <= 0;
+        motion_buffer_counter_right_clear_active <= 0;
+        motion_buffer_moh_known_samples <= 0;
+        motion_buffer_moh_left_load_bsm <= 0;
+        motion_buffer_moh_right_load_bsm <= 0;
+        motion_buffer_moh_left_clear_bsm <= 0;
+        motion_buffer_moh_right_clear_bsm <= 0;
+        motion_buffer_moh_left_load_render <= 0;
+        motion_buffer_moh_right_load_render <= 0;
+        motion_buffer_moh_left_clear_render <= 0;
+        motion_buffer_moh_right_clear_render <= 0;
         motion_buffer_raw_lb_nonzero_samples <= 0;
         motion_buffer_raw_b1h_nonzero <= 0;
         motion_buffer_raw_b1h_n_nonzero <= 0;
@@ -416,6 +495,12 @@ always @(posedge clk) begin
         motion_buffer_compat_d1_missing_mem_other_side_next_match <= 0;
         motion_buffer_compat_d1_missing_selected_window_match <= 0;
         motion_buffer_compat_d1_missing_other_window_match <= 0;
+        motion_buffer_compat_d1_missing_8k_mbj <= 0;
+        motion_buffer_compat_d1_missing_8k_feedback <= 0;
+        motion_buffer_compat_d1_missing_8m_mbj <= 0;
+        motion_buffer_compat_d1_missing_8m_feedback <= 0;
+        motion_buffer_compat_d1_missing_ivdsh_high <= 0;
+        motion_buffer_compat_d1_missing_ivdbh_high <= 0;
         for (motion_offset_i = 0; motion_offset_i < 17;
              motion_offset_i = motion_offset_i + 1)
             motion_buffer_other_window_match_offset[motion_offset_i] <= 0;
@@ -423,6 +508,13 @@ always @(posedge clk) begin
         motion_buffer_mbit_nonzero_compat_d1 <= 0;
         motion_buffer_mbit_nonzero_compat_d2 <= 0;
         motion_buffer_mbit_nonzero_compat_d3 <= 0;
+        motion_buffer_single_addr_nonzero_samples <= 0;
+        motion_buffer_single_addr_now_matches <= 0;
+        motion_buffer_single_addr_d1_matches <= 0;
+        motion_buffer_single_addr_d2_matches <= 0;
+        motion_buffer_single_addr_d3_matches <= 0;
+        motion_buffer_single_addr_d1_missing <= 0;
+        motion_buffer_single_addr_fills_bridge_missing <= 0;
         motion_buffer_sel_b1h_nonzero <= 0;
         motion_buffer_sel_b1h_matches <= 0;
         motion_buffer_sel_b1h_n_nonzero <= 0;
@@ -664,6 +756,65 @@ always @(posedge clk) begin
                       dut.lb1_feedback_for_8m) ? 1 : 0);
             end
         end
+        if (!$isunknown({dut.motion_buffer_we_n_from_8j_8l,
+                         dut.motion_buffer_write_n,
+                         dut.motion_buffer_9t_clk_en_from_bsm})) begin
+            if (dut.motion_buffer_9t_clk_en_from_bsm) begin
+                motion_buffer_9t_clk_samples <=
+                    motion_buffer_9t_clk_samples + 1;
+                if (!dut.motion_buffer_we_n_from_8j_8l)
+                    motion_buffer_9t_we_overlap_samples <=
+                        motion_buffer_9t_we_overlap_samples + 1;
+                if (!dut.motion_buffer_write_n)
+                    motion_buffer_9t_bridge_overlap_samples <=
+                        motion_buffer_9t_bridge_overlap_samples + 1;
+                if (dut.hblank || dut.vblank)
+                    motion_buffer_9t_blank_samples <=
+                        motion_buffer_9t_blank_samples + 1;
+                if (!dut.hblank && !dut.vblank)
+                    motion_buffer_9t_visible_samples <=
+                        motion_buffer_9t_visible_samples + 1;
+            end
+            if (!dut.motion_buffer_we_n_from_8j_8l)
+                motion_buffer_schematic_we_samples <=
+                    motion_buffer_schematic_we_samples + 1;
+            if (!dut.motion_buffer_we_n_from_8j_8l &&
+                !dut.motion_buffer_write_n)
+                motion_buffer_bridge_we_overlap_samples <=
+                    motion_buffer_bridge_we_overlap_samples + 1;
+            if (dut.motion_buffer_we_n_from_8j_8l &&
+                !dut.motion_buffer_write_n)
+                motion_buffer_bridge_only_we_samples <=
+                    motion_buffer_bridge_only_we_samples + 1;
+            if (!dut.motion_buffer_we_n_from_8j_8l &&
+                dut.motion_buffer_write_n) begin
+                motion_buffer_schematic_only_we_samples <=
+                    motion_buffer_schematic_only_we_samples + 1;
+                if (dut.hblank || dut.vblank)
+                    motion_buffer_schematic_only_blank_samples <=
+                        motion_buffer_schematic_only_blank_samples + 1;
+                if (dut.render_pending)
+                    motion_buffer_schematic_only_render_samples <=
+                        motion_buffer_schematic_only_render_samples + 1;
+                if (!dut.hblank && !dut.vblank)
+                    motion_buffer_schematic_only_visible_samples <=
+                        motion_buffer_schematic_only_visible_samples + 1;
+            end
+        end
+        if (!$isunknown({dut.motion_buffer_cs1_n_from_8j_8l,
+                         dut.motion_buffer_cs2_n_from_8j_8l,
+                         dut.motion_buffer_oe_n_from_8j_8l})) begin
+            motion_buffer_control_known_samples <=
+                motion_buffer_control_known_samples + 1;
+            if (!dut.motion_buffer_cs1_n_from_8j_8l &&
+                !dut.motion_buffer_cs2_n_from_8j_8l &&
+                !dut.motion_buffer_oe_n_from_8j_8l)
+                motion_buffer_cs_oe_active_samples <=
+                    motion_buffer_cs_oe_active_samples + 1;
+            else
+                motion_buffer_cs_oe_inactive_samples <=
+                    motion_buffer_cs_oe_inactive_samples + 1;
+        end
         if (dut.motion_buffer_render_write &&
             !$isunknown({dut.motion_buffer_left_ram_write_addr,
                          dut.motion_buffer_right_ram_write_addr,
@@ -681,6 +832,91 @@ always @(posedge clk) begin
                 motion_buffer_addr_adjacent_matches +
                     ((dut.motion_buffer_right_ram_write_addr ==
                       dut.motion_buffer_left_ram_write_addr + 8'd1) ? 1 : 0);
+        end
+        if (dut.motion_buffer_render_write &&
+            !$isunknown({dut.motion_buffer_left_addr_from_7j_7k,
+                         dut.motion_buffer_right_addr_from_7l_7m,
+                         dut.motion_buffer_left_load_addr,
+                         dut.motion_buffer_right_load_addr,
+                         dut.motion_buffer_left_load_n,
+                         dut.motion_buffer_right_load_n,
+                         dut.motion_buffer_left_clear_n,
+                         dut.motion_buffer_right_clear_n})) begin
+            motion_buffer_counter_addr_known_samples <=
+                motion_buffer_counter_addr_known_samples + 1;
+            motion_buffer_counter_addr_exact_matches <=
+                motion_buffer_counter_addr_exact_matches +
+                    ((dut.motion_buffer_left_addr_from_7j_7k ==
+                      dut.motion_buffer_left_load_addr &&
+                      dut.motion_buffer_right_addr_from_7l_7m ==
+                      dut.motion_buffer_right_load_addr) ? 1 : 0);
+            motion_buffer_counter_addr_prev_matches <=
+                motion_buffer_counter_addr_prev_matches +
+                    ((dut.motion_buffer_left_addr_from_7j_7k ==
+                      dut.motion_buffer_left_load_addr - 8'd1 &&
+                      dut.motion_buffer_right_addr_from_7l_7m ==
+                      dut.motion_buffer_right_load_addr - 8'd1) ? 1 : 0);
+            motion_buffer_counter_addr_next_matches <=
+                motion_buffer_counter_addr_next_matches +
+                    ((dut.motion_buffer_left_addr_from_7j_7k ==
+                      dut.motion_buffer_left_load_addr + 8'd1 &&
+                      dut.motion_buffer_right_addr_from_7l_7m ==
+                      dut.motion_buffer_right_load_addr + 8'd1) ? 1 : 0);
+            motion_buffer_counter_addr_cross_matches <=
+                motion_buffer_counter_addr_cross_matches +
+                    ((dut.motion_buffer_left_addr_from_7j_7k ==
+                      dut.motion_buffer_right_load_addr &&
+                      dut.motion_buffer_right_addr_from_7l_7m ==
+                      dut.motion_buffer_left_load_addr) ? 1 : 0);
+            if (!dut.motion_buffer_left_load_n)
+                motion_buffer_counter_left_load_active <=
+                    motion_buffer_counter_left_load_active + 1;
+            if (!dut.motion_buffer_right_load_n)
+                motion_buffer_counter_right_load_active <=
+                    motion_buffer_counter_right_load_active + 1;
+            if (!dut.motion_buffer_left_clear_n)
+                motion_buffer_counter_left_clear_active <=
+                    motion_buffer_counter_left_clear_active + 1;
+            if (!dut.motion_buffer_right_clear_n)
+                motion_buffer_counter_right_clear_active <=
+                    motion_buffer_counter_right_clear_active + 1;
+        end
+        if (!$isunknown({dut.motion_buffer_left_load_n,
+                         dut.motion_buffer_right_load_n,
+                         dut.motion_buffer_left_clear_n,
+                         dut.motion_buffer_right_clear_n,
+                         dut.motion_buffer_9t_clk_en_from_bsm,
+                         dut.motion_buffer_render_write})) begin
+            motion_buffer_moh_known_samples <=
+                motion_buffer_moh_known_samples + 1;
+            if (dut.motion_buffer_9t_clk_en_from_bsm) begin
+                if (!dut.motion_buffer_left_load_n)
+                    motion_buffer_moh_left_load_bsm <=
+                        motion_buffer_moh_left_load_bsm + 1;
+                if (!dut.motion_buffer_right_load_n)
+                    motion_buffer_moh_right_load_bsm <=
+                        motion_buffer_moh_right_load_bsm + 1;
+                if (!dut.motion_buffer_left_clear_n)
+                    motion_buffer_moh_left_clear_bsm <=
+                        motion_buffer_moh_left_clear_bsm + 1;
+                if (!dut.motion_buffer_right_clear_n)
+                    motion_buffer_moh_right_clear_bsm <=
+                        motion_buffer_moh_right_clear_bsm + 1;
+            end
+            if (dut.motion_buffer_render_write) begin
+                if (!dut.motion_buffer_left_load_n)
+                    motion_buffer_moh_left_load_render <=
+                        motion_buffer_moh_left_load_render + 1;
+                if (!dut.motion_buffer_right_load_n)
+                    motion_buffer_moh_right_load_render <=
+                        motion_buffer_moh_right_load_render + 1;
+                if (!dut.motion_buffer_left_clear_n)
+                    motion_buffer_moh_left_clear_render <=
+                        motion_buffer_moh_left_clear_render + 1;
+                if (!dut.motion_buffer_right_clear_n)
+                    motion_buffer_moh_right_clear_render <=
+                        motion_buffer_moh_right_clear_render + 1;
+            end
         end
 
         if (!dut.hblank && !dut.vblank &&
@@ -885,9 +1121,33 @@ always @(posedge clk) begin
             if (mbit_compat_d1_tb != 4'd0) begin
                 motion_buffer_compat_d1_nonzero_samples <=
                     motion_buffer_compat_d1_nonzero_samples + 1;
+                if (!$isunknown(dut.mbit_schematic_single_addr)) begin
+                    if (dut.mbit_schematic_single_addr != 4'd0)
+                        motion_buffer_single_addr_nonzero_samples <=
+                            motion_buffer_single_addr_nonzero_samples + 1;
+                    if (dut.mbit_schematic_single_addr == dut.mbit_compat)
+                        motion_buffer_single_addr_now_matches <=
+                            motion_buffer_single_addr_now_matches + 1;
+                    if (dut.mbit_schematic_single_addr == mbit_compat_d1_tb)
+                        motion_buffer_single_addr_d1_matches <=
+                            motion_buffer_single_addr_d1_matches + 1;
+                    if (dut.mbit_schematic_single_addr == mbit_compat_d2_tb)
+                        motion_buffer_single_addr_d2_matches <=
+                            motion_buffer_single_addr_d2_matches + 1;
+                    if (dut.mbit_schematic_single_addr == mbit_compat_d3_tb)
+                        motion_buffer_single_addr_d3_matches <=
+                            motion_buffer_single_addr_d3_matches + 1;
+                    if (dut.mbit_schematic_single_addr == 4'd0)
+                        motion_buffer_single_addr_d1_missing <=
+                            motion_buffer_single_addr_d1_missing + 1;
+                end
                 if (dut.mbit_schematic == 4'd0) begin
                     motion_buffer_compat_d1_schematic_missing <=
                         motion_buffer_compat_d1_schematic_missing + 1;
+                    if (!$isunknown(dut.mbit_schematic_single_addr) &&
+                        dut.mbit_schematic_single_addr != 4'd0)
+                        motion_buffer_single_addr_fills_bridge_missing <=
+                            motion_buffer_single_addr_fills_bridge_missing + 1;
                     if (motion_buffer_compat_d1_missing_first_h < 0) begin
                         motion_buffer_compat_d1_missing_first_h <= dut.hcnt;
                         motion_buffer_compat_d1_missing_first_v <= dut.vcnt;
@@ -942,6 +1202,24 @@ always @(posedge clk) begin
                     if (motion_buffer_other_window_has_match)
                         motion_buffer_compat_d1_missing_other_window_match <=
                             motion_buffer_compat_d1_missing_other_window_match + 1;
+                    if (dut.motion_buffer_data_from_8k == dut.mbj_pending0)
+                        motion_buffer_compat_d1_missing_8k_mbj <=
+                            motion_buffer_compat_d1_missing_8k_mbj + 1;
+                    if (dut.motion_buffer_data_from_8k == dut.lb0_feedback_for_8k)
+                        motion_buffer_compat_d1_missing_8k_feedback <=
+                            motion_buffer_compat_d1_missing_8k_feedback + 1;
+                    if (dut.motion_buffer_data_from_8m == dut.mbj_pending1)
+                        motion_buffer_compat_d1_missing_8m_mbj <=
+                            motion_buffer_compat_d1_missing_8m_mbj + 1;
+                    if (dut.motion_buffer_data_from_8m == dut.lb1_feedback_for_8m)
+                        motion_buffer_compat_d1_missing_8m_feedback <=
+                            motion_buffer_compat_d1_missing_8m_feedback + 1;
+                    if (dut.ivdsh_from_7f)
+                        motion_buffer_compat_d1_missing_ivdsh_high <=
+                            motion_buffer_compat_d1_missing_ivdsh_high + 1;
+                    if (dut.ivdbh_from_7f)
+                        motion_buffer_compat_d1_missing_ivdbh_high <=
+                            motion_buffer_compat_d1_missing_ivdbh_high + 1;
                 end
                 if (dut.mbit_schematic != 4'd0 &&
                     dut.mbit_schematic != mbit_compat_d1_tb)
@@ -1247,10 +1525,49 @@ initial begin
              motion_buffer_lb_nonzero_samples,
              motion_buffer_mbit_nonzero_samples,
              motion_buffer_compat_nonzero_samples);
+    $display("Motion buffer 93422 WE compare schematic_bsm=%0d bridge=%0d overlap=%0d bridge_only=%0d schematic_only=%0d blank=%0d render=%0d visible=%0d",
+             motion_buffer_schematic_we_samples,
+             motion_buffer_write_samples,
+             motion_buffer_bridge_we_overlap_samples,
+             motion_buffer_bridge_only_we_samples,
+             motion_buffer_schematic_only_we_samples,
+             motion_buffer_schematic_only_blank_samples,
+             motion_buffer_schematic_only_render_samples,
+             motion_buffer_schematic_only_visible_samples);
+    $display("Motion buffer 9T/WE phase clk=%0d we_overlap=%0d bridge_overlap=%0d blank=%0d visible=%0d",
+             motion_buffer_9t_clk_samples,
+             motion_buffer_9t_we_overlap_samples,
+             motion_buffer_9t_bridge_overlap_samples,
+             motion_buffer_9t_blank_samples,
+             motion_buffer_9t_visible_samples);
+    $display("Motion buffer 93422 control known=%0d cs_oe_active=%0d cs_oe_inactive=%0d",
+             motion_buffer_control_known_samples,
+             motion_buffer_cs_oe_active_samples,
+             motion_buffer_cs_oe_inactive_samples);
     $display("Motion buffer address compare known=%0d expected=%0d adjacent=%0d",
              motion_buffer_addr_known_samples,
              motion_buffer_addr_expected_matches,
              motion_buffer_addr_adjacent_matches);
+    $display("Motion buffer counter address compare known=%0d exact=%0d prev=%0d next=%0d cross=%0d left_load=%0d right_load=%0d left_clear=%0d right_clear=%0d",
+             motion_buffer_counter_addr_known_samples,
+             motion_buffer_counter_addr_exact_matches,
+             motion_buffer_counter_addr_prev_matches,
+             motion_buffer_counter_addr_next_matches,
+             motion_buffer_counter_addr_cross_matches,
+             motion_buffer_counter_left_load_active,
+             motion_buffer_counter_right_load_active,
+             motion_buffer_counter_left_clear_active,
+             motion_buffer_counter_right_clear_active);
+    $display("Motion buffer MOH phase known=%0d bsm_ll=%0d bsm_rl=%0d bsm_lc=%0d bsm_rc=%0d render_ll=%0d render_rl=%0d render_lc=%0d render_rc=%0d",
+             motion_buffer_moh_known_samples,
+             motion_buffer_moh_left_load_bsm,
+             motion_buffer_moh_right_load_bsm,
+             motion_buffer_moh_left_clear_bsm,
+             motion_buffer_moh_right_clear_bsm,
+             motion_buffer_moh_left_load_render,
+             motion_buffer_moh_right_load_render,
+             motion_buffer_moh_left_clear_render,
+             motion_buffer_moh_right_clear_render);
     $display("Motion buffer 8K/8M render data left_nonzero=%0d right_nonzero=%0d mbj0_nonzero=%0d mbj1_nonzero=%0d 8k_mbj=%0d 8m_mbj=%0d 8k_fb=%0d 8m_fb=%0d",
              motion_buffer_left_data_nonzero_samples,
              motion_buffer_right_data_nonzero_samples,
@@ -1317,6 +1634,14 @@ initial begin
              motion_buffer_compat_d1_missing_mem_other_side_next_match,
              motion_buffer_compat_d1_missing_selected_window_match,
              motion_buffer_compat_d1_missing_other_window_match);
+    $display("Motion buffer single-address probe nonzero=%0d now=%0d d1=%0d d2=%0d d3=%0d d1_missing=%0d fills_bridge_missing=%0d",
+             motion_buffer_single_addr_nonzero_samples,
+             motion_buffer_single_addr_now_matches,
+             motion_buffer_single_addr_d1_matches,
+             motion_buffer_single_addr_d2_matches,
+             motion_buffer_single_addr_d3_matches,
+             motion_buffer_single_addr_d1_missing,
+             motion_buffer_single_addr_fills_bridge_missing);
     $display("Motion buffer other-side match offsets m8=%0d m7=%0d m6=%0d m5=%0d m4=%0d m3=%0d m2=%0d m1=%0d z=%0d p1=%0d p2=%0d p3=%0d p4=%0d p5=%0d p6=%0d p7=%0d p8=%0d",
              motion_buffer_other_window_match_offset[0],
              motion_buffer_other_window_match_offset[1],
@@ -1335,6 +1660,13 @@ initial begin
              motion_buffer_other_window_match_offset[14],
              motion_buffer_other_window_match_offset[15],
              motion_buffer_other_window_match_offset[16]);
+    $display("Motion buffer missing 8K/8M select 8k_mbj=%0d 8k_fb=%0d 8m_mbj=%0d 8m_fb=%0d ivdsh_high=%0d ivdbh_high=%0d",
+             motion_buffer_compat_d1_missing_8k_mbj,
+             motion_buffer_compat_d1_missing_8k_feedback,
+             motion_buffer_compat_d1_missing_8m_mbj,
+             motion_buffer_compat_d1_missing_8m_feedback,
+             motion_buffer_compat_d1_missing_ivdsh_high,
+             motion_buffer_compat_d1_missing_ivdbh_high);
     $finish;
 end
 

@@ -106,6 +106,26 @@ task automatic read_latch_pair;
     end
 endtask
 
+task automatic write_and_latch_pair_same_edge;
+    input [7:0] addr;
+    input [3:0] left_value;
+    input [3:0] right_value;
+    begin
+        @(negedge clk);
+        write_addr_left = addr;
+        write_addr_right = addr;
+        read_addr = addr;
+        data_left = left_value;
+        data_right = right_value;
+        we_n = 1'b0;
+        latch_en = 1'b1;
+        @(posedge clk);
+        #1;
+        we_n = 1'b1;
+        latch_en = 1'b0;
+    end
+endtask
+
 initial begin
     failures = 0;
     write_addr_left = 8'd0;
@@ -144,6 +164,25 @@ initial begin
     #1 check_mbit(4'h3, "addr23 left via 9H");
     vdbh = 1'b1;
     #1 check_mbit(4'hc, "addr23 right via 9H");
+
+    write_pair(8'h24, 4'h2, 4'h4);
+    read_latch_pair(8'h24);
+    vdbh = 1'b0;
+    #1 check_mbit(4'h2, "addr24 initial left via 9H");
+    vdbh = 1'b1;
+    #1 check_mbit(4'h4, "addr24 initial right via 9H");
+
+    write_and_latch_pair_same_edge(8'h24, 4'he, 4'h1);
+    vdbh = 1'b0;
+    #1 check_mbit(4'h2, "same-edge write/latch keeps old left");
+    vdbh = 1'b1;
+    #1 check_mbit(4'h4, "same-edge write/latch keeps old right");
+
+    read_latch_pair(8'h24);
+    vdbh = 1'b0;
+    #1 check_mbit(4'he, "addr24 updated left after later latch");
+    vdbh = 1'b1;
+    #1 check_mbit(4'h1, "addr24 updated right after later latch");
 
     if (failures == 0)
         $display("Motion buffer harness compare passed");

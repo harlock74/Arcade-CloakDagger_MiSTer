@@ -1760,10 +1760,11 @@ wire [3:0] mbj_pending0 =
 wire [3:0] mbj_pending1 =
     USE_SCHEMATIC_MOTION_ROM_PIXELS ? mrom_parallel_pair_pixel1 : pending_pixel1;
 // Sheet 4A 1H/8F LS139 create motion-object hold/read strobes. The simplified
-// renderer still treats IV as a line-bank alias, while Sheet 4B 9H VDBH is a
+// renderer still treats IV as a line-bank alias. Sheet 4B 9H uses VDBH as the
 // horizontal pixel-phase selector for the two latched LB nibbles.
 wire bytload = render_pending;
 wire vdbh = !b1h;
+wire motion_buffer_9h_select_from_vdbh = vdbh;
 wire iv = display_line_bank;
 wire lof = bytload;
 wire bytload_rise = ce_5m && !bytload_d && bytload;
@@ -1826,6 +1827,8 @@ wire [3:0] lb0_feedback_for_8k =
 wire [3:0] lb1_feedback_for_8m =
     display_line_bank ? sprite_line0[pending_sx + pending_x + 1'd1] :
                         sprite_line1[pending_sx + pending_x + 1'd1];
+// Sheet 4B data-bit convention follows physical 93422/9T/9H ordering:
+// [3:0] == D4..D1 == LBx3..LBx0 == MBIT3..MBIT0.
 wire [3:0] motion_buffer_data_from_8k;
 wire [3:0] motion_buffer_data_from_8m;
 wire [3:0] motion_buffer_left_ram_data;
@@ -1839,6 +1842,7 @@ wire [7:0] motion_buffer_left_load_addr =
     pending_sx + {5'd0, pending_x};
 wire [7:0] motion_buffer_right_load_addr =
     pending_sx + {5'd0, pending_x} + 8'd1;
+wire       motion_buffer_load_addr_valid = render_pending;
 wire       motion_buffer_left_low_ripple;
 wire       motion_buffer_left_high_ripple;
 wire       motion_buffer_right_low_ripple;
@@ -1858,14 +1862,26 @@ wire [7:0] lb_from_9t;
 wire [3:0] lb0_from_9t;
 wire [3:0] lb1_from_9t;
 wire [3:0] mbit_from_9h;
+wire [3:0] lb0_from_8j_single_addr;
+wire [3:0] lb1_from_8l_single_addr;
+wire [7:0] lb_from_9t_single_addr;
+wire [3:0] lb0_from_9t_single_addr;
+wire [3:0] lb1_from_9t_single_addr;
+wire [3:0] mbit_from_9h_single_addr;
+wire [3:0] mbit_schematic_single_addr;
 wire motion_buffer_render_write = render_pending;
 wire motion_buffer_clear_write = ce_5m && !hblank;
 wire motion_buffer_write = motion_buffer_render_write || motion_buffer_clear_write;
 wire motion_buffer_write_n = !motion_buffer_write;
-wire motion_buffer_cs1_n = 1'b0;
-wire motion_buffer_cs2_n = 1'b0;
-wire motion_buffer_oe_n = 1'b0;
-wire lb_latch_clk_en = bsm;
+wire motion_buffer_we_n_from_8j_8l = !bsm;
+wire motion_buffer_cs1_n_from_8j_8l = 1'b0;
+wire motion_buffer_cs2_n_from_8j_8l = 1'b0;
+wire motion_buffer_oe_n_from_8j_8l = 1'b0;
+wire motion_buffer_cs1_n = motion_buffer_cs1_n_from_8j_8l;
+wire motion_buffer_cs2_n = motion_buffer_cs2_n_from_8j_8l;
+wire motion_buffer_oe_n = motion_buffer_oe_n_from_8j_8l;
+wire motion_buffer_9t_clk_en_from_bsm = bsm;
+wire motion_buffer_9t_clear_n_from_sheet = 1'b1;
 wire motion_buffer_read_bank = display_line_bank;
 wire motion_buffer_write_bank = !display_line_bank;
 wire motion_buffer_bank0_write_n =
@@ -1891,8 +1907,10 @@ assign lb1_from_8l =
     motion_buffer_read_bank ? lb1_from_8l_bank1 : lb1_from_8l_bank0;
 
 // Sheet 4B 8K/8M LS157 select fresh MBJ pixels or line-buffer feedback before
-// writing the 93422 motion buffers. Current sprite_line writes still use the
-// compatibility path until the 93422 counters/RAMs are structurally present.
+// writing the 93422 motion buffers. The vector order preserves the schematic
+// pins: 8K/8M pin 9 -> D4, pin 12 -> D3, pin 7 -> D2, pin 4 -> D1 as routed
+// on the sheet. Current sprite_line writes still use the compatibility path
+// until the 93422 counters/RAMs are structurally present.
 cloak_74ls157 u_8k_motion_buffer_data_mux (
     .sel      (ivdsh_from_7f),
     .enable_n (1'b0),
@@ -2016,10 +2034,11 @@ cloak_93422 u_8l_motion_buffer_right_ram_bank1 (
 );
 
 // Sheet 4B 9T LS273 latches the two line-buffer nibbles into LB00..LB13 on BSM.
+// The schematic clear input is held inactive; reset here is FPGA startup only.
 cloak_74ls273 u_9t_line_buffer_latch (
     .clk    (clk),
     .reset  (reset),
-    .clk_en (lb_latch_clk_en),
+    .clk_en (motion_buffer_9t_clk_en_from_bsm),
     .d      ({lb1_from_8l, lb0_from_8j}),
     .q      (lb_from_9t)
 );
@@ -2030,12 +2049,60 @@ assign lb1_from_9t = lb_from_9t[7:4];
 // Sheet 4B 9H LS157 selects the final motion bits. The selected output is
 // named here; visible video still uses the compatibility mbit path below.
 cloak_74ls157 u_9h_mbit_select (
-    .sel      (vdbh),
+    .sel      (motion_buffer_9h_select_from_vdbh),
     .enable_n (1'b0),
     .a        (lb0_from_9t),
     .b        (lb1_from_9t),
     .y        (mbit_from_9h)
 );
+
+// Non-driving Sheet 4B probe: one address bus per 93422, supplied by the
+// schematic counters, with WE from BSM. This is kept beside the bridge until
+// the object scanner can supply true schematic phases.
+cloak_93422 u_motion_buffer_left_single_addr_probe (
+    .clk      (clk),
+    .write_addr(motion_buffer_left_addr_from_7j_7k),
+    .read_addr (motion_buffer_left_addr_from_7j_7k),
+    .data_in  (motion_buffer_data_from_8k),
+    .we_n     (motion_buffer_we_n_from_8j_8l),
+    .cs1_n    (motion_buffer_cs1_n_from_8j_8l),
+    .cs2_n    (motion_buffer_cs2_n_from_8j_8l),
+    .oe_n     (motion_buffer_oe_n_from_8j_8l),
+    .data_out (lb0_from_8j_single_addr)
+);
+
+cloak_93422 u_motion_buffer_right_single_addr_probe (
+    .clk      (clk),
+    .write_addr(motion_buffer_right_addr_from_7l_7m),
+    .read_addr (motion_buffer_right_addr_from_7l_7m),
+    .data_in  (motion_buffer_data_from_8m),
+    .we_n     (motion_buffer_we_n_from_8j_8l),
+    .cs1_n    (motion_buffer_cs1_n_from_8j_8l),
+    .cs2_n    (motion_buffer_cs2_n_from_8j_8l),
+    .oe_n     (motion_buffer_oe_n_from_8j_8l),
+    .data_out (lb1_from_8l_single_addr)
+);
+
+cloak_74ls273 u_9t_line_buffer_latch_single_addr_probe (
+    .clk    (clk),
+    .reset  (reset),
+    .clk_en (motion_buffer_9t_clk_en_from_bsm),
+    .d      ({lb1_from_8l_single_addr, lb0_from_8j_single_addr}),
+    .q      (lb_from_9t_single_addr)
+);
+
+assign lb0_from_9t_single_addr = lb_from_9t_single_addr[3:0];
+assign lb1_from_9t_single_addr = lb_from_9t_single_addr[7:4];
+
+cloak_74ls157 u_9h_mbit_select_single_addr_probe (
+    .sel      (motion_buffer_9h_select_from_vdbh),
+    .enable_n (1'b0),
+    .a        (lb0_from_9t_single_addr),
+    .b        (lb1_from_9t_single_addr),
+    .y        (mbit_from_9h_single_addr)
+);
+
+assign mbit_schematic_single_addr = mbit_from_9h_single_addr;
 
 always_ff @(posedge clk) begin
     if (reset) begin
@@ -2362,6 +2429,9 @@ wire _unused = &{
     moflip_latched_from_6h, mopa_low_latched_from_6h, flipm, m14h,
     lof, ivdbh_from_7f, ivdsh_from_7f, flip_from_11f, flip_n_from_11f,
     motion_buffer_data_from_8k, motion_buffer_data_from_8m,
+    motion_buffer_we_n_from_8j_8l,
+    motion_buffer_9t_clear_n_from_sheet,
+    motion_buffer_load_addr_valid,
     motion_buffer_left_addr_from_7j_7k, motion_buffer_right_addr_from_7l_7m,
     motion_buffer_display_read_addr,
     lb0_from_8j, lb1_from_8l, lb0_from_9t, lb1_from_9t, mbit_from_9h,
