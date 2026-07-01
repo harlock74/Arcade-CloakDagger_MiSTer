@@ -1658,6 +1658,8 @@ wire [3:0] mbj0_shift_q;
 wire [3:0] mbj1_shift_q;
 wire [3:0] mbj2_shift_q;
 wire [3:0] mbj3_shift_q;
+wire       motion_shift_load_from_render_pending = render_pending;
+wire [1:0] motion_shift_mode_provisional = 2'b11;
 
 // Sheet 4A 6P/6R/7P/7R LS194 group. These are loaded from the parallel
 // M0..MF ROM bus; current MBJ behaviour remains on the compatibility path
@@ -1666,8 +1668,8 @@ cloak_74ls194 u_6r_mbj0_shift (
     .clk     (clk),
     .reset   (reset),
     .clear_n (1'b1),
-    .clk_en  (render_pending),
-    .mode    (2'b11),
+    .clk_en  (motion_shift_load_from_render_pending),
+    .mode    (motion_shift_mode_provisional),
     .sr      (1'b0),
     .sl      (1'b0),
     .d       ({mc_mrom, m8, m4, m0}),
@@ -1678,8 +1680,8 @@ cloak_74ls194 u_6p_mbj1_shift (
     .clk     (clk),
     .reset   (reset),
     .clear_n (1'b1),
-    .clk_en  (render_pending),
-    .mode    (2'b11),
+    .clk_en  (motion_shift_load_from_render_pending),
+    .mode    (motion_shift_mode_provisional),
     .sr      (1'b0),
     .sl      (1'b0),
     .d       ({md_mrom, m9, m5, m1}),
@@ -1690,8 +1692,8 @@ cloak_74ls194 u_7r_mbj2_shift (
     .clk     (clk),
     .reset   (reset),
     .clear_n (1'b1),
-    .clk_en  (render_pending),
-    .mode    (2'b11),
+    .clk_en  (motion_shift_load_from_render_pending),
+    .mode    (motion_shift_mode_provisional),
     .sr      (1'b0),
     .sl      (1'b0),
     .d       ({me_mrom, ma_mrom, m6, m2}),
@@ -1702,8 +1704,8 @@ cloak_74ls194 u_7p_mbj3_shift (
     .clk     (clk),
     .reset   (reset),
     .clear_n (1'b1),
-    .clk_en  (render_pending),
-    .mode    (2'b11),
+    .clk_en  (motion_shift_load_from_render_pending),
+    .mode    (motion_shift_mode_provisional),
     .sr      (1'b0),
     .sl      (1'b0),
     .d       ({mf_mrom, mb_mrom, m7, m3}),
@@ -1759,15 +1761,17 @@ wire [3:0] mbj_pending0 =
     USE_SCHEMATIC_MOTION_ROM_PIXELS ? mrom_parallel_pair_pixel0 : pending_pixel0;
 wire [3:0] mbj_pending1 =
     USE_SCHEMATIC_MOTION_ROM_PIXELS ? mrom_parallel_pair_pixel1 : pending_pixel1;
-// Sheet 4A 1H/8F LS139 create motion-object hold/read strobes. The simplified
-// renderer still treats IV as a line-bank alias. Sheet 4B 9H uses VDBH as the
-// horizontal pixel-phase selector for the two latched LB nibbles.
-wire bytload = render_pending;
+// Sheet 4A 1H/8F LS139 create motion-object hold/read strobes. These source
+// aliases are still provisional because the temporary renderer is not yet the
+// schematic object scanner. Sheet 4B 9H uses VDBH as the horizontal pixel-phase
+// selector for the two latched LB nibbles.
+wire bytload_from_render_pending = render_pending;
 wire vdbh = !b1h;
 wire motion_buffer_9h_select_from_vdbh = vdbh;
-wire iv = display_line_bank;
-wire lof = bytload;
-wire bytload_rise = ce_5m && !bytload_d && bytload;
+wire iv_provisional_from_display_line_bank = display_line_bank;
+wire lof_from_bytload_provisional = bytload_from_render_pending;
+wire bytload_rise =
+    ce_5m && !bytload_d && bytload_from_render_pending;
 wire b8h_7f_rise = ce_5m && !b8h_7f_d && b8h;
 wire [3:0] moh_left_decode_n;
 wire [3:0] moh_right_decode_n;
@@ -1776,20 +1780,20 @@ wire ivdsh_from_7f;
 
 cloak_74ls139 u_1h_moh_left_decode (
     .enable_n (1'b0),
-    .sel      ({1'b0, bytload}),
+    .sel      ({1'b0, bytload_from_render_pending}),
     .y_n      (moh_left_decode_n)
 );
 
 cloak_74ls139 u_8f_moh_right_decode (
-    .enable_n (!bytload),
-    .sel      ({iv, ivdbh_from_7f}),
+    .enable_n (!bytload_from_render_pending),
+    .sel      ({ivdbh_from_7f, iv_provisional_from_display_line_bank}),
     .y_n      (moh_right_decode_n)
 );
 
-wire mohli_decoded_n = moh_left_decode_n[0];
-wire mohlo_decoded_n = moh_left_decode_n[1];
-wire mohro_decoded_n = moh_right_decode_n[1];
-wire mohri_decoded_n = moh_right_decode_n[2];
+wire mohlo_decoded_n = moh_left_decode_n[0];
+wire mohli_decoded_n = moh_left_decode_n[1];
+wire mohro_decoded_n = moh_right_decode_n[0];
+wire mohri_decoded_n = moh_right_decode_n[1];
 wire mohli_n = mohli_decoded_n;
 wire mohld_n = mohlo_decoded_n;
 wire mohri_n = mohri_decoded_n;
@@ -1803,7 +1807,7 @@ cloak_74ls74 u_7f_ivdb_latch (
     .preset_n (1'b1),
     .clear_n  (1'b1),
     .clk_en   (b8h_7f_rise),
-    .d        (iv),
+    .d        (iv_provisional_from_display_line_bank),
     .q        (ivdbh_from_7f),
     .q_n      (ivdsh_from_7f)
 );
@@ -1833,6 +1837,10 @@ wire [3:0] motion_buffer_data_from_8k;
 wire [3:0] motion_buffer_data_from_8m;
 wire [3:0] motion_buffer_left_ram_data;
 wire [3:0] motion_buffer_right_ram_data;
+wire       motion_buffer_8k_select_from_mohli_n = mohli_n;
+wire       motion_buffer_8m_select_from_mohri_n = mohri_n;
+wire       motion_buffer_8k_enable_n_from_ivdbh = ivdbh_from_7f;
+wire       motion_buffer_8m_enable_n_from_ivdbh = ivdbh_from_7f;
 wire [7:0] motion_buffer_left_addr_from_7j_7k;
 wire [7:0] motion_buffer_right_addr_from_7l_7m;
 wire [7:0] motion_buffer_display_read_addr = hcnt[7:0];
@@ -1907,21 +1915,22 @@ assign lb1_from_8l =
     motion_buffer_read_bank ? lb1_from_8l_bank1 : lb1_from_8l_bank0;
 
 // Sheet 4B 8K/8M LS157 select fresh MBJ pixels or line-buffer feedback before
-// writing the 93422 motion buffers. The vector order preserves the schematic
+// writing the 93422 motion buffers. Pin 1 select is /MOHLI for 8K and /MOHRI
+// for 8M; pin 15 enable is IVDBH. The vector order preserves the schematic
 // pins: 8K/8M pin 9 -> D4, pin 12 -> D3, pin 7 -> D2, pin 4 -> D1 as routed
 // on the sheet. Current sprite_line writes still use the compatibility path
 // until the 93422 counters/RAMs are structurally present.
 cloak_74ls157 u_8k_motion_buffer_data_mux (
-    .sel      (ivdsh_from_7f),
-    .enable_n (1'b0),
+    .sel      (motion_buffer_8k_select_from_mohli_n),
+    .enable_n (motion_buffer_8k_enable_n_from_ivdbh),
     .a        (mbj_pending0),
     .b        (lb0_feedback_for_8k),
     .y        (motion_buffer_data_from_8k)
 );
 
 cloak_74ls157 u_8m_motion_buffer_data_mux (
-    .sel      (ivdbh_from_7f),
-    .enable_n (1'b0),
+    .sel      (motion_buffer_8m_select_from_mohri_n),
+    .enable_n (motion_buffer_8m_enable_n_from_ivdbh),
     .a        (mbj_pending1),
     .b        (lb1_feedback_for_8m),
     .y        (motion_buffer_data_from_8m)
@@ -2119,7 +2128,7 @@ always_ff @(posedge clk) begin
         if (ce_5m) b2h_6k_d <= b2h;
         if (ce_5m) b4h_8h_d <= b4h;
         if (ce_5m) b8h_7f_d <= b8h;
-        if (ce_5m) bytload_d <= bytload;
+        if (ce_5m) bytload_d <= bytload_from_render_pending;
 
         if (ce_5m && !hblank) begin
             if (display_line_bank) sprite_line0[hcnt[7:0]] <= 0;
@@ -2427,7 +2436,8 @@ wire _unused = &{
     mopa_high_latched_from_8h,
     mopa_moflip_latched_from_8h, match_latched_from_6h,
     moflip_latched_from_6h, mopa_low_latched_from_6h, flipm, m14h,
-    lof, ivdbh_from_7f, ivdsh_from_7f, flip_from_11f, flip_n_from_11f,
+    lof_from_bytload_provisional, ivdbh_from_7f, ivdsh_from_7f,
+    flip_from_11f, flip_n_from_11f,
     motion_buffer_data_from_8k, motion_buffer_data_from_8m,
     motion_buffer_we_n_from_8j_8l,
     motion_buffer_9t_clear_n_from_sheet,

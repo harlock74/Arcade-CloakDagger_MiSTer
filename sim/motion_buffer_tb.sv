@@ -10,6 +10,9 @@ reg [7:0] read_addr;
 reg [3:0] data_left;
 reg [3:0] data_right;
 reg we_n;
+reg cs1_n;
+reg cs2_n;
+reg oe_n;
 reg latch_en;
 reg vdbh;
 
@@ -28,9 +31,9 @@ cloak_93422 u_8j_motion_buffer_left_ram (
     .read_addr (read_addr),
     .data_in   (data_left),
     .we_n      (we_n),
-    .cs1_n     (1'b0),
-    .cs2_n     (1'b0),
-    .oe_n      (1'b0),
+    .cs1_n     (cs1_n),
+    .cs2_n     (cs2_n),
+    .oe_n      (oe_n),
     .data_out  (lb0_from_8j)
 );
 
@@ -40,9 +43,9 @@ cloak_93422 u_8l_motion_buffer_right_ram (
     .read_addr (read_addr),
     .data_in   (data_right),
     .we_n      (we_n),
-    .cs1_n     (1'b0),
-    .cs2_n     (1'b0),
-    .oe_n      (1'b0),
+    .cs1_n     (cs1_n),
+    .cs2_n     (cs2_n),
+    .oe_n      (oe_n),
     .data_out  (lb1_from_8l)
 );
 
@@ -134,6 +137,9 @@ initial begin
     data_left = 4'd0;
     data_right = 4'd0;
     we_n = 1'b1;
+    cs1_n = 1'b0;
+    cs2_n = 1'b0;
+    oe_n = 1'b0;
     latch_en = 1'b0;
     vdbh = 1'b0;
 
@@ -143,6 +149,7 @@ initial begin
 
     write_pair(8'h22, 4'ha, 4'h5);
     write_pair(8'h23, 4'h3, 4'hc);
+    write_pair(8'h25, 4'h0, 4'h0);
 
     read_latch_pair(8'h22);
     vdbh = 1'b0;
@@ -164,6 +171,31 @@ initial begin
     #1 check_mbit(4'h3, "addr23 left via 9H");
     vdbh = 1'b1;
     #1 check_mbit(4'hc, "addr23 right via 9H");
+
+    cs1_n = 1'b1;
+    write_pair(8'h25, 4'he, 4'hf);
+    cs1_n = 1'b0;
+    read_latch_pair(8'h25);
+    vdbh = 1'b0;
+    #1 check_mbit(4'h0, "CS1 disabled write ignored left");
+    vdbh = 1'b1;
+    #1 check_mbit(4'h0, "CS1 disabled write ignored right");
+
+    oe_n = 1'b1;
+    read_latch_pair(8'h22);
+    vdbh = 1'b0;
+    #1 check_mbit(4'hf, "OE disabled left inactive");
+    vdbh = 1'b1;
+    #1 check_mbit(4'hf, "OE disabled right inactive");
+    oe_n = 1'b0;
+
+    cs2_n = 1'b1;
+    read_latch_pair(8'h22);
+    vdbh = 1'b0;
+    #1 check_mbit(4'hf, "CS2 disabled left inactive");
+    vdbh = 1'b1;
+    #1 check_mbit(4'hf, "CS2 disabled right inactive");
+    cs2_n = 1'b0;
 
     write_pair(8'h24, 4'h2, 4'h4);
     read_latch_pair(8'h24);
