@@ -12,10 +12,10 @@ Long-term goal: progressively improve the core through visual audits of Schemati
 
 ## Screenshots
 
-| | | |
-| --- | --- | --- |
-| ![Cloak & Dagger screenshot 1](Screenshots/1.png) | ![Cloak & Dagger screenshot 2](Screenshots/2.png) | ![Cloak & Dagger screenshot 3](Screenshots/3.png) |
-| ![Cloak & Dagger screenshot 4](Screenshots/4.png) | ![Cloak & Dagger screenshot 5](Screenshots/5.png) | ![Cloak & Dagger screenshot 6](Screenshots/6.png) |
+| | |
+| --- | --- |
+| ![Cloak & Dagger screenshot 1](Screenshots/1.png) | ![Cloak & Dagger screenshot 2](Screenshots/2.png) |
+| ![Cloak & Dagger screenshot 4](Screenshots/4.png) | ![Cloak & Dagger screenshot 5](Screenshots/5.png) |
 
 ---
 
