@@ -1,0 +1,233 @@
+Sheet,Board,Section,IC,IC Type,Pin Number,Pin Function,Connected To,Direction,Confidence,Reviewer Notes
+4B,Master,Motion Object Buffers,7J,74LS163A,1,/CLR,MOHRO; off-sheet MOHRO; also shared with 7K pin 1,Input,High,Active low
+4B,Master,Motion Object Buffers,7J,74LS163A,2,CLK,B5M; off-sheet timing rail; also counters and 93422/9T,Input,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,3,A preload,MOD0; off-sheet MOD0,Input,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,4,B preload,MOD1; off-sheet MOD1,Input,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,5,C preload,MOD2; off-sheet MOD2,Input,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,6,D preload,MOD3; off-sheet MOD3,Input,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,7,ENP,pullup rail via PR174; PR174 pullup bus,Tied,High,Confirmed pull-up rail
+4B,Master,Motion Object Buffers,7J,74LS163A,9,/LOAD,MOHLO; off-sheet MOHLO; also 7K pin 9,Input,High,Active low
+4B,Master,Motion Object Buffers,7J,74LS163A,10,ENT,pullup rail via PR174; PR174 pullup bus,Tied,High,Confirmed pull-up rail
+4B,Master,Motion Object Buffers,7J,74LS163A,11,QD,address bit to 8J A3; 8J pin 1 A3,Output,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,12,QC,address bit to 8J A2; 8J pin 2 A2,Output,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,13,QB,address bit to 8J A1; 8J pin 3 A1,Output,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,14,QA,address bit to 8J A0; 8J pin 4 A0,Output,High,
+4B,Master,Motion Object Buffers,7J,74LS163A,15,RIP,cascade ripple; 7K pin 10 ENT,Output,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,1,/CLR,MOHRO; off-sheet MOHRO; also 7J pin 1,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,2,CLK,B5M; off-sheet timing rail; also counters and 93422/9T,Input,High,Confirm label reads B5M
+4B,Master,Motion Object Buffers,7K,74LS163A,3,A preload,MOD4; off-sheet MOD4,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,4,B preload,MOD5; off-sheet MOD5,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,5,C preload,MOD6; off-sheet MOD6,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,6,D preload,MOD7; off-sheet MOD7,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,7,ENP,7J RIP/cascade node; 7J pin 15 and 7K pin 10 node,Input,Checked,Confirmed
+4B,Master,Motion Object Buffers,7K,74LS163A,9,/LOAD,MOHLO; off-sheet MOHLO; also 7J pin 9,Input,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,10,ENT,7J RIP/cascade node; 7J pin 15 and 7K pin 7 node,Input,Checked,Confirmed
+4B,Master,Motion Object Buffers,7K,74LS163A,11,QD,address bit to 8J A7; 8J pin 7 A7,Output,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,12,QC,address bit to 8J A6; 8J pin 6 A6,Output,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,13,QB,address bit to 8J A5; 8J pin 5 A5,Output,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,14,QA,address bit to 8J A4; 8J pin 21 A4,Output,High,
+4B,Master,Motion Object Buffers,7K,74LS163A,15,RIP,no visible downstream use; local/no visible destination,Output,Checked,Confirmed no hidden connection
+4B,Master,Motion Object Buffers,7L,74LS163A,1,/CLR,"/MOHRI; Sheet 4A, 8F pin 6; also shared with 7M pin 1",Input,High,Active low
+4B,Master,Motion Object Buffers,7L,74LS163A,2,CLK,B5M; off-sheet timing rail; also counters and 93422/9T,Input,High,Confirm label reads B5M
+4B,Master,Motion Object Buffers,7L,74LS163A,3,A preload,MOD0; off-sheet MOD0,Input,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,4,B preload,MOD1; off-sheet MOD1,Input,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,5,C preload,MOD2; off-sheet MOD2,Input,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,6,D preload,MOD3; off-sheet MOD3,Input,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,7,ENP,pullup rail via PR174; PR174 pullup bus,Tied,High,Confirm pull-up rail
+4B,Master,Motion Object Buffers,7L,74LS163A,9,/LOAD,"/MOHLI; Sheet 4A, 11H pin12; also shared with 7M pin 9",Input,High,Active low
+4B,Master,Motion Object Buffers,7L,74LS163A,10,ENT,pullup rail via PR174; PR174 pullup bus,Tied,High,Confirm pull-up rail
+4B,Master,Motion Object Buffers,7L,74LS163A,11,QD,address bit to 8L A3; 8L pin 1 A3,Output,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,12,QC,address bit to 8L A2; 8L pin 2 A2,Output,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,13,QB,address bit to 8L A1; 8L pin 3 A1,Output,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,14,QA,address bit to 8L A0; 8L pin 4 A0,Output,High,
+4B,Master,Motion Object Buffers,7L,74LS163A,15,RIP,cascade ripple; 7M pin 10 ENT,Output,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,1,/CLR,MOHRI; off-sheet MOHRI; also 7L pin 1,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,2,CLK,B5M; off-sheet timing rail; also counters and 93422/9T,Input,High,Confirm label reads B5M
+4B,Master,Motion Object Buffers,7M,74LS163A,3,A preload,MOD4; off-sheet MOD4,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,4,B preload,MOD5; off-sheet MOD5,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,5,C preload,MOD6; off-sheet MOD6,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,6,D preload,MOD7; off-sheet MOD7,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,7,ENP,7L RIP/cascade node; 7L pin 15 and 7M pin 10 node,Input,Checked,Confirmed
+4B,Master,Motion Object Buffers,7M,74LS163A,9,/LOAD,MOHLI; off-sheet MOHLI; also 7L pin 9,Input,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,10,ENT,7L RIP/cascade node; 7L pin 15 and 7M pin 7 node,Input,Checked,Confirmed
+4B,Master,Motion Object Buffers,7M,74LS163A,11,QD,address bit to 8L A7; 8L pin 7 A7,Output,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,12,QC,address bit to 8L A6; 8L pin 6 A6,Output,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,13,QB,address bit to 8L A5; 8L pin 5 A5,Output,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,14,QA,address bit to 8L A4; 8L pin 21 A4,Output,High,
+4B,Master,Motion Object Buffers,7M,74LS163A,15,RIP,Not connected,Output,Checked,Confirmed no hidden connection
+4B,Master,Motion Object Buffers,8K,74LS157,1,Select,Common select net; driven by 9K pin 6; shared with 8M pin 1,Input,High,Select pin is not active-low; confirm net label
+4B,Master,Motion Object Buffers,8K,74LS157,2,A input,MBJ3*; off-sheet MBJ3*,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,3,B input,LB03; 9T pin 9 feedback / 9H pin 11,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,4,Y output,D1; 8J pin 9 D1,Output,High,
+4B,Master,Motion Object Buffers,8K,74LS157,5,A input,MBJ1*; off-sheet MBJ1*,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,6,B input,LB01; 9T pin 15 feedback / 9H pin 14,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,7,Y output,D2; 8J pin 11 D2,Output,High,
+4B,Master,Motion Object Buffers,8K,74LS157,9,Y output,D4; 8J pin 15 D4,Output,High,
+4B,Master,Motion Object Buffers,8K,74LS157,10,B input,LB00; 9T pin 6 feedback / 9H pin 2,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,11,A input,MBJ0*; off-sheet MBJ0*,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,12,Y output,D3; 8J pin 13 D3,Output,High,
+4B,Master,Motion Object Buffers,8K,74LS157,13,B input,LB02; 9T pin 12 feedback / 9H pin 5,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,14,A input,MBJ2*; off-sheet MBJ2*,Input,High,
+4B,Master,Motion Object Buffers,8K,74LS157,15,/G enable,/IVDBH; off-sheet /IVDBH,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,1,Select,Common select net; driven by 9K pin 6; shared with 8K pin 1,Input,High,Select pin is not active-low; confirm net label
+4B,Master,Motion Object Buffers,8M,74LS157,2,A input,MBJ0*; off-sheet MBJ0*,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,3,B input,LB10; 9T pin 5 feedback / 9H pin 3,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,4,Y output,D1; 8L pin 9 D1,Output,High,
+4B,Master,Motion Object Buffers,8M,74LS157,5,A input,MBJ1*; off-sheet MBJ1*,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,6,B input,LB11; 9T pin 16 feedback / 9H pin 13,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,7,Y output,D2; 8L pin 11 D2,Output,High,
+4B,Master,Motion Object Buffers,8M,74LS157,9,Y output,D4; 8L pin 15 D4,Output,High,
+4B,Master,Motion Object Buffers,8M,74LS157,10,B input,LB13; 9T pin 2 feedback / 9H pin 10,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,11,A input,MBJ3*; off-sheet MBJ3*,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,12,Y output,D3; 8L pin 13 D3,Output,High,
+4B,Master,Motion Object Buffers,8M,74LS157,13,B input,LB12; 9T pin 19 feedback / 9H pin 6,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,14,A input,MBJ2*; off-sheet MBJ2*,Input,High,
+4B,Master,Motion Object Buffers,8M,74LS157,15,/G enable,IVDBH; off-sheet IVDBH,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,1,A3,address from 7J QD; 7J pin 11,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,2,A2,address from 7J QC; 7J pin 12,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,3,A1,address from 7J QB; 7J pin 13,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,4,A0,address from 7J QA; 7J pin 14,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,5,A5,address from 7K QB; 7K pin 13,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,6,A6,address from 7K QC; 7K pin 12,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,7,A7,address from 7K QD; 7K pin 11,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,9,D1,D1 from 8K; 8K pin 4,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,10,O1,LB00; 9T pin 7 D and feedback to 8K pin 10,Output,High,
+4B,Master,Motion Object Buffers,8J,93422,11,D2,D2 from 8K; 8K pin 7,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,12,O2,LB01; 9T pin 14 D and feedback to 8K pin 6,Output,High,
+4B,Master,Motion Object Buffers,8J,93422,13,D3,D3 from 8K; 8K pin 12,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,14,O3,LB02; 9T pin 13 D and feedback to 8K pin 13,Output,High,
+4B,Master,Motion Object Buffers,8J,93422,15,D4,D4 from 8K; 8K pin 9,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,16,O4,LB03; 9T pin 8 D and feedback to 8K pin 3,Output,High,
+4B,Master,Motion Object Buffers,8J,93422,17,CS2,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,18,OE,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,19,CS1,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8J,93422,20,WE,B5M; off-sheet timing rail,Input,High,Confirm label reads B5M
+4B,Master,Motion Object Buffers,8J,93422,21,A4,address from 7K QA; 7K pin 14,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,1,A3,address from 7L QD; 7L pin 11,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,2,A2,address from 7L QC; 7L pin 12,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,3,A1,address from 7L QB; 7L pin 13,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,4,A0,address from 7L QA; 7L pin 14,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,5,A5,address from 7M QB; 7M pin 13,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,6,A6,address from 7M QC; 7M pin 12,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,7,A7,address from 7M QD; 7M pin 11,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,9,D1,D1 from 8M; 8M pin 4,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,10,O1,LB10; 9T pin 4 D and feedback to 8M pin 3,Output,High,
+4B,Master,Motion Object Buffers,8L,93422,11,D2,D2 from 8M; 8M pin 7,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,12,O2,LB11; 9T pin 17 D and feedback to 8M pin 6,Output,High,
+4B,Master,Motion Object Buffers,8L,93422,13,D3,D3 from 8M; 8M pin 12,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,14,O3,LB12; 9T pin 18 D and feedback to 8M pin 13,Output,High,
+4B,Master,Motion Object Buffers,8L,93422,15,D4,D4 from 8M; 8M pin 9,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,16,O4,LB13; 9T pin 3 D and feedback to 8M pin 10,Output,High,
+4B,Master,Motion Object Buffers,8L,93422,17,CS2,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,18,OE,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,19,CS1,tied active via grounded rail/PR174; ground/pull network,Input,High,
+4B,Master,Motion Object Buffers,8L,93422,20,WE,B5M; off-sheet timing rail,Input,High,Confirm label reads B5M
+4B,Master,Motion Object Buffers,8L,93422,21,A4,address from 7M QA; 7M pin 14,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,1,/CLR,"pullup rail PR174; PR174, held inactive",Tied,High,Confirmed pull-up rail
+4B,Master,Motion Object Buffers,9J,74LS273,2,Q,LB13; feedback to 8M pin 10 and 9H pin 10,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,3,D,O4 from 8L; 8L pin 16,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,4,D,O1 from 8L; 8L pin 10,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,5,Q,LB10; feedback to 8M pin 3 and 9H pin 3,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,6,Q,LB00; feedback to 8K pin 10 and 9H pin 2,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,7,D,O1 from 8J; 8J pin 10,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,8,D,O4 from 8J; 8J pin 16,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,9,Q,LB03; feedback to 8K pin 3 and 9H pin 11,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,11,CLK,B5M; off-sheet timing rail,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,12,Q,LB02; feedback to 8K pin 13 and 9H pin 5,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,13,D,O3 from 8J; 8J pin 14,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,14,D,O2 from 8J; 8J pin 12,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,15,Q,LB01; feedback to 8K pin 6 and 9H pin 14,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,16,Q,LB11; feedback to 8M pin 6 and 9H pin 13,Output,High,
+4B,Master,Motion Object Buffers,9J,74LS273,17,D,O2 from 8L; 8L pin 12,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,18,D,O3 from 8L; 8L pin 14,Input,High,
+4B,Master,Motion Object Buffers,9J,74LS273,19,Q,LB12; feedback to 8M pin 13 and 9H pin 6,Output,High,
+4B,Master,Motion Object Buffers,9H,74LS157,1,Select,"IVD8H;Sheet 4B, 7F pin 5",Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,2,A input,LB00; 9T pin 6,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,3,B input,LB10; 9T pin 5,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,4,Y output,MBIT0; video logic; 9K input,Output,High,
+4B,Master,Motion Object Buffers,9H,74LS157,5,A input,LB02; 9T pin 12,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,6,B input,LB12; 9T pin 19,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,7,Y output,MBIT2; video logic; 9K input,Output,High,
+4B,Master,Motion Object Buffers,9H,74LS157,9,Y output,MBIT3; video logic; 9K input,Output,High,
+4B,Master,Motion Object Buffers,9H,74LS157,10,B input,LB13; 9T pin 2,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,11,A input,LB03; 9T pin 9,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,12,Y output,MBIT1; video logic; 9K input,Output,High,
+4B,Master,Motion Object Buffers,9H,74LS157,13,B input,LB11; 9T pin 16,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,14,A input,LB01; 9T pin 15,Input,High,
+4B,Master,Motion Object Buffers,9H,74LS157,15,/G enable,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,6F,74LS74,1,/CLR,pullup rail PR173; PR173,Tied,High,Confirm pull-up rail
+4B,Master,Video / Colour,6F,74LS74,2,D,128H; off-sheet timing rail,Input,High,
+4B,Master,Video / Colour,6F,74LS74,3,CLK,B8H; off-sheet timing rail,Input,High,
+4B,Master,Video / Colour,6F,74LS74,4,/PRE,pullup rail PR173; PR173,Tied,High,Confirm pull-up rail
+4B,Master,Video / Colour,6F,74LS74,5,Q,video timing select; feeds 10H/10J select path,Output,High,
+4B,Master,Video / Colour,6F,74LS74,6,/Q,Not connected,Output,Checked,Confirmed no hidden connection
+4B,Master,Video / Colour,10H,74LS153,1,/1G,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,10H,74LS153,2,B select,COLSEL0; off-sheet/control logic,Input,High,
+4B,Master,Video / Colour,10H,74LS153,3,C1 input,PBIT3; playfield bit,Input,High,
+4B,Master,Video / Colour,10H,74LS153,4,C2 input,MBIT3; 9H output / motion bit,Input,High,
+4B,Master,Video / Colour,10H,74LS153,5,C3 input,PABA3; CPU/address related off-sheet net,Input,High,
+4B,Master,Video / Colour,10H,74LS153,6,C0 input,PBIT2; playfield bit,Input,High,
+4B,Master,Video / Colour,10H,74LS153,7,Y output,COLA2; off-sheet/final color output,Output,High,
+4B,Master,Video / Colour,10H,74LS153,9,Y output,COLA3; off-sheet/final color output,Output,High,
+4B,Master,Video / Colour,10H,74LS153,10,C0 input,PBIT3; playfield bit,Input,High,
+4B,Master,Video / Colour,10H,74LS153,11,C1 input,6F Pin 5,Input,Checked,Confirmed
+4B,Master,Video / Colour,10H,74LS153,12,C2 input,MBIT3; 9H output / motion bit,Input,High,
+4B,Master,Video / Colour,10H,74LS153,13,C3 input,PABA3; CPU/address related off-sheet net,Input,High,
+4B,Master,Video / Colour,10H,74LS153,14,A select,COLSEL0; off-sheet/control logic,Input,High,
+4B,Master,Video / Colour,10H,74LS153,15,/2G,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,10J,74LS153,1,/1G,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,10J,74LS153,2,B select,COLSEL0; off-sheet/control logic,Input,High,
+4B,Master,Video / Colour,10J,74LS153,3,C1 input,PABA0; CPU/address related off-sheet net,Input,High,
+4B,Master,Video / Colour,10J,74LS153,4,C2 input,MBIT0; 9H output / motion bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,5,C1 input,BMAP2; bitmap bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,6,C0 input,PBIT0; playfield bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,7,Y output,COLA0; off-sheet/final color output,Output,High,
+4B,Master,Video / Colour,10J,74LS153,9,Y output,COLA1; off-sheet/final color output,Output,High,
+4B,Master,Video / Colour,10J,74LS153,10,C0 input,PBIT1; playfield bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,11,C1 input,BMAP1; bitmap bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,12,C2 input,MBIT1; 9H output / motion bit,Input,High,
+4B,Master,Video / Colour,10J,74LS153,13,C3 input,PABA1; CPU/address related off-sheet net,Input,High,
+4B,Master,Video / Colour,10J,74LS153,14,A select,COLSEL0; off-sheet/control logic,Input,High,
+4B,Master,Video / Colour,10J,74LS153,15,/2G,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,11J,74LS157,1,Select,COLRAM; off-sheet COLRAM,Input,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,2,A input,pull-up rail PR176; PR176 pull-up rail,Tied,Checked,Confirmed pull-up rail PR176
+4B,Master,Video / Colour,11J,74LS157,3,B input,pull-up rail PR176; PR176 pull-up rail,Tied,Checked,Confirmed pull-up rail PR176
+4B,Master,Video / Colour,11J,74LS157,4,Y output,unused/local output; no visible labelled destination,Output,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,5,A input,PABA4; off-sheet PABA4,Input,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,6,B input,COLSEL0; lower Sheet 4B color select logic,Input,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,7,Y output,COLA4; off-sheet/final color output,Output,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,9,Y output,COLA5; off-sheet/final color output,Output,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,10,B input,COLSEL1; lower Sheet 4B color select logic,Input,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,11,A input,PABA5; off-sheet PABA5,Input,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,12,Y output,unused/local output; no visible labelled destination,Output,High,Confirm IC designator 11J
+4B,Master,Video / Colour,11J,74LS157,13,B input,pull-up rail PR176; PR176 pull-up rail,Tied,Checked,Confirmed pull-up rail PR176
+4B,Master,Video / Colour,11J,74LS157,14,A input,pull-up rail PR176; PR176 pull-up rail,Tied,Checked,Confirmed pull-up rail PR176
+4B,Master,Video / Colour,11J,74LS157,15,/G enable,ground; direct ground,Tied,High,Confirm tied to ground
+4B,Master,Video / Colour,9K,74LS260,1,input,MBIT3; 9H output/local MBIT3 net,Input,High,
+4B,Master,Video / Colour,9K,74LS260,2,input,MBIT2; 9H output/local MBIT2 net,Input,High,
+4B,Master,Video / Colour,9K,74LS260,3,input,MBIT1; 9H output/local MBIT1 net,Input,High,
+4B,Master,Video / Colour,9K,74LS260,5,output,motion-zero detect; 8E pin 1 and 8C pin 3 branch,Output,High,
+4B,Master,Video / Colour,9K,74LS260,12,input,MBIT0; 9H output/local MBIT0 net,Input,High,
+4B,Master,Video / Colour,9K,74LS260,13,input,ground; direct ground,Tied,High,Confirmed tied to ground
+4B,Master,Video / Colour,9K,74LS260,4,input,MBJ3*; off-sheet MBJ3*,Input,Checked,Confirmed
+4B,Master,Video / Colour,9K,74LS260,8,input,MBJ2*; off-sheet MBJ2*,Input,Checked,Confirmed
+4B,Master,Video / Colour,9K,74LS260,9,input,MBJ1*; off-sheet MBJ1*,Input,Checked,Confirmed
+4B,Master,Video / Colour,9K,74LS260,6,output,Common select net to 8K pin 1 and 8M pin 1,Output,Checked,Confirmed
+4B,Master,Video / Colour,9K,74LS260,10,input,MBJ0*; off-sheet MBJ0*,Input,Checked,Confirmed
+4B,Master,Video / Colour,9K,74LS260,11,input,ground; direct ground,Tied,Checked,Confirmed tied to ground
+4B,Master,Video / Colour,8C,74LS04,3,input,9K output; 9K pin 5,Input,High,
+4B,Master,Video / Colour,8C,74LS04,3,input,9K pin 5,Input,Checked,Confirmed
+4B,Master,Video / Colour,8C,74LS04,4,output,8D pin 4,Output,Checked,Confirmed
+4B,Master,Video / Colour,8D,74LS32,4,OR input,8C output branch; 8C pin 4,Input,Checked,Confirmed
+4B,Master,Video / Colour,8D,74LS32,5,OR input,1L output branch; 1L pin 12,Input,Checked,Confirmed
+4B,Master,Video / Colour,8D,74LS32,6,OR output,8E input branch; 8E pin 12,Output,Checked,Confirmed
+4B,Master,Video / Colour,1L,74LS27,1,NOR input,BMAP2; off-sheet BMAP2,Input,Checked,Confirmed
+4B,Master,Video / Colour,1L,74LS27,2,NOR input,BMAP1; off-sheet BMAP1,Input,Checked,Confirmed
+4B,Master,Video / Colour,1L,74LS27,13,NOR input,BMAP0; off-sheet BMAP0,Input,Checked,Confirmed
+4B,Master,Video / Colour,1L,74LS27,12,NOR output,8D pin 5,Output,Checked,Confirmed
+4B,Master,Video / Colour,8E,74LS00,1,input,9K output branch; 9K pin 5,Input,Checked,
+4B,Master,Video / Colour,8E,74LS00,2,input,/COLRAM; off-sheet COLRAM,Input,Checked,
+4B,Master,Video / Colour,8E,74LS00,3,output,COLSEL1; off-sheet COLSEL1,Output,Checked,
+4B,Master,Video / Colour,8E,74LS00,12,input,8D pin 6,Input,Checked,Confirmed
+4B,Master,Video / Colour,8E,74LS00,13,input,COLRAM; off-sheet COLRAM,Input,Checked,Confirmed
+4B,Master,Video / Colour,8E,74LS00,11,output,COLSEL0; off-sheet COLSEL0,Output,Checked,Confirmed

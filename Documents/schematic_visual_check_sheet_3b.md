@@ -1,0 +1,224 @@
+# Schematic Visual Check - Sheet 3B
+
+Reviewer-facing checklist generated from the Sheet 3B visual-check CSV. Keep this file and the CSV in sync; the CSV is the spreadsheet source for `.numbers` updates.
+
+## Summary
+
+- Rows: 200
+- Check: 198
+- High: 2
+
+## Review Focus
+
+Rows marked `Check` still need visual confirmation against the schematic crop/PDF. Do not promote them to `Checked` until the pin number, label, and connection are readable.
+
+## Visual Check Table
+
+
+| Sheet | Board | Section | IC | IC Type | Pin Number | Pin Function | Active Low | Connected To | Direction | Confidence | Reviewer Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 1 | Select | N | BDEL2H from 7H | Input | Check | Seeded from playfield audit/RTL; confirm select label on Sheet 3B |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 2 | A input | N | PABA0 | Input | Check | CPU address side for PFA0; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 3 | B input | N | 8H | Input | Check | Video/timing side for PFA0; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 4 | Y output | N | PFA0 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 5 | A input | N | PABA1 | Input | Check | CPU address side for PFA1; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 6 | B input | N | 16H | Input | Check | Video/timing side for PFA1; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 7 | Y output | N | PFA1 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 9 | Y output | N | PFA3 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 10 | B input | N | 64H | Input | Check | Video/timing side for PFA3; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 11 | A input | N | PABA3 | Input | Check | CPU address side for PFA3; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 12 | Y output | N | PFA2 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 13 | B input | N | 32H | Input | Check | Video/timing side for PFA2; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 14 | A input | N | PABA2 | Input | Check | CPU address side for PFA2; visually confirm |
+| 3B | Master | Playfield Address Generation | 3M | 74LS157 | 15 | /G enable | Y | Tied active / ground | Input | Check | LS157 enable expected active; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 1 | Select | N | BDEL2H from 7H | Input | Check | Seeded from playfield audit/RTL; confirm select label on Sheet 3B |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 2 | A input | N | PABA4 | Input | Check | CPU address side for PFA4; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 3 | B input | N | 128H** / h128ss | Input | Check | Video/timing side for PFA4; visually confirm label |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 4 | Y output | N | PFA4 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 5 | A input | N | PABA5 | Input | Check | CPU address side for PFA5; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 6 | B input | N | CUSD | Input | Check | Custom timing side for PFA5; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 7 | Y output | N | PFA5 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 9 | Y output | N | PFA7 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 10 | B input | N | CUSF | Input | Check | Custom timing side for PFA7; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 11 | A input | N | PABA7 | Input | Check | CPU address side for PFA7; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 12 | Y output | N | PFA6 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 13 | B input | N | CUSE | Input | Check | Custom timing side for PFA6; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 14 | A input | N | PABA6 | Input | Check | CPU address side for PFA6; visually confirm |
+| 3B | Master | Playfield Address Generation | 3L | 74LS157 | 15 | /G enable | Y | Tied active / ground | Input | Check | LS157 enable expected active; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 1 | Select | N | BDEL2H from 7H | Input | Check | Seeded from playfield audit/RTL; confirm select label on Sheet 3B |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 2 | A input | N | PABA8 | Input | Check | CPU address side for PFA8; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 3 | B input | N | CUSG | Input | Check | Custom timing side for PFA8; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 4 | Y output | N | PFA8 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 5 | A input | N | PABA9 | Input | Check | CPU address side for PFA9; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 6 | B input | N | CUSH | Input | Check | Custom timing side for PFA9; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 7 | Y output | N | PFA9 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 9 | Y output | N | unused or not part of PFA0..10 | Output | Check | RTL ignores high mux bit 3; visually confirm if unused/tied/local |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 10 | B input | N | Tied/PRT or unused timing input | Input | Check | RTL placeholder is PRT=0; visually confirm schematic label |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 11 | A input | N | Tied low or unused CPU high input | Input | Check | RTL placeholder is 0; visually confirm schematic tie |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 12 | Y output | N | PFA10 | Output | Check | Output to playfield RAM address |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 13 | B input | N | PRT / timing input | Input | Check | RTL placeholder is PRT; visually confirm label |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 14 | A input | N | PABA10 | Input | Check | CPU address side for PFA10; visually confirm |
+| 3B | Master | Playfield Address Generation | 3N | 74LS157 | 15 | /G enable | Y | Tied active / ground | Input | Check | LS157 enable expected active; visually confirm |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 1 | /CLR | Y | Unclear local clear/preset line | Input | Check | Visible on Sheet 3B load crop but label is not readable |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 2 | D input | N | B5M | Input | Check | Visible label on Sheet 3B load crop |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 3 | CLK | N | NIBLOAD from 3F pin 3 | Input | Check | Visible connection from 3F output; exact edge remains for audit |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 4 | /PRE | Y | Tied high through PR176 | Input | Check | Visible pull-up reference near pin 4 |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 5 | Q output | N | LDF | Output | Check | Visible label on Sheet 3B load crop |
+| 3B | Master | Playfield Load Timing | 11F | 74LS74 | 6 | /Q output | Y | LDNIB | Output | Check | Visible label on Sheet 3B load crop; confirm active-low naming |
+| 3B | Master | Playfield Load Timing | 3F | 74LS08 | 1 | AND input | N | B2H | Input | Check | Visible label on Sheet 3B load crop |
+| 3B | Master | Playfield Load Timing | 3F | 74LS08 | 2 | AND input | N | B1H | Input | Check | Visible label on Sheet 3B load crop |
+| 3B | Master | Playfield Load Timing | 3F | 74LS08 | 3 | AND output | N | NIBLOAD to 11F pin 3 | Output | Check | Visible output into 11F clock path |
+| 3B | Master | Playfield Load Timing | 10D | 74LS00 | 1 | NAND input | N | NIBLOAD/local load timing | Input | Check | Visible BYTLOAD gate area; exact source label needs reviewer confirmation |
+| 3B | Master | Playfield Load Timing | 10D | 74LS00 | 2 | NAND input | N | B4H inverted timing from 10E | Input | Check | Visible BYTLOAD gate area; exact source label needs reviewer confirmation |
+| 3B | Master | Playfield Load Timing | 10D | 74LS00 | 3 | NAND output | Y | BYTLOAD | Output | Check | Visible BYTLOAD label; important because Sheet 4A BYTLOAD substitute was rejected |
+| 3B | Master | Playfield Load Timing | 10E | 74LS04 | 1 | Inverter input | N | B4H | Input | Check | Visible B4H inverter pair on Sheet 3B load crop |
+| 3B | Master | Playfield Load Timing | 10E | 74LS04 | 2 | Inverter output | Y | B4H inverted local timing | Output | Check | Visible inverter output feeding load glue; exact bar label needs confirmation |
+| 3B | Master | Playfield Load Timing | 10E | 74LS04 | 13 | Inverter input | N | B4H inverted/local timing | Input | Check | Visible second inverter in B4H load-glue chain |
+| 3B | Master | Playfield Load Timing | 10E | 74LS04 | 12 | Inverter output | N | B4H restored/local timing | Output | Check | Visible second inverter output; exact destination needs confirmation |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 1 | /CLR | Y | B4H | Input | Check | Visible B4H label to clear pin on Sheet 3B latch crop |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 2 | Q0 output | N | PFP0 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 3 | D0 input | N | PFD0 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 4 | D1 input | N | PFD1 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 5 | Q1 output | N | PFP1 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 6 | Q2 output | N | PFP2 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 7 | D2 input | N | PFD2 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 8 | D3 input | N | PFD3 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 9 | Q3 output | N | PFP3 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 11 | CLK | N | Unclear local clock/load net | Input | Check | Pin visible but label is not readable in current crop |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 12 | Q4 output | N | PFP4 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 13 | D4 input | N | PFD4 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 14 | D5 input | N | PFD5 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 15 | Q5 output | N | PFP5 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 16 | Q6 output | N | PFP6 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 17 | D6 input | N | PFD6 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 18 | D7 input | N | PFD7 | Input | Check | Visible input label |
+| 3B | Master | Playfield Character Latch | 4K | 74LS273 | 19 | Q7 output | N | PFP7 | Output | Check | Visible output label |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 1 | Address input | N | PFP1 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 2 | Address input | N | PFP4 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 3 | Address input | N | PFP2 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 4 | Address input | N | PFP0 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 5 | Address input | N | CUSC | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 6 | Address input | N | CUSB | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 7 | Address input | N | CUSA | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 8 | Address input | N | 4H** | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 9 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 10 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 11 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 12 | GND | N | Ground | Power | Check | Visible ground connection |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 13 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 14 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 15 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 16 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 17 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 18 | Address input | N | PFP3 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 19 | Address input | N | PFP5 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 20 | /CS | Y | Tied ground active | Input | Check | Visible CS tied to ground |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 21 | VPP/VCC | N | +5V rail | Power | Check | Visible +5V rail near ROM package |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 22 | Address input | N | PFP7 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 23 | Address input | N | PFP6 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5N | 2532 | 24 | VCC | N | +5V rail | Power | Check | Visible +5V rail near ROM package |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 1 | Address input | N | PFP1 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 2 | Address input | N | PFP4 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 3 | Address input | N | PFP2 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 4 | Address input | N | PFP0 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 5 | Address input | N | CUSC | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 6 | Address input | N | CUSB | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 7 | Address input | N | CUSA | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 8 | Address input | N | 4H** | Input | Check | Visible address label |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 9 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 10 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 11 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 12 | GND | N | Ground | Power | Check | Visible ground connection |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 13 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 14 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 15 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 16 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 17 | Data output | N | ROM data bit to LS194 input | Output | Check | Output label is small in crop; confirm exact A/B/C/D bit; preserve prior caution that 5N/5R output labels need visual confirmation |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 18 | Address input | N | PFP3 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 19 | Address input | N | PFP5 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 20 | /CS | Y | Tied ground active | Input | Check | Visible CS tied to ground |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 21 | VPP/VCC | N | +5V rail | Power | Check | Visible +5V rail near ROM package |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 22 | Address input | N | PFP7 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 23 | Address input | N | PFP6 | Input | Check | Visible address label; confirm pin/order on ROM crop |
+| 3B | Master | Playfield Character ROM | 5R | 2532 | 24 | VCC | N | +5V rail | Power | Check | Visible +5V rail near ROM package |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 1 | /CLR | Y | BLANK | Input | Check | Visible BLANK label to clear pin |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 2 | Serial right input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 3 | Parallel A input | N | A0 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 4 | Parallel B input | N | B0 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 5 | Parallel C input | N | C0 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 6 | Parallel D input | N | D0 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 7 | Serial left input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 9 | S0 mode select | N | 4/5F pin 3 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 10 | S1 mode select | N | 4/5F pin 6 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 11 | CLK | N | B5M | Input | Check | Visible B5M label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 12 | QD output | N | PBIT3N | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 13 | QC output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 14 | QB output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 4P | 74LS194 | 15 | QA output | N | PBIT3F | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 1 | /CLR | Y | BLANK | Input | Check | Visible BLANK label to clear pin |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 2 | Serial right input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 3 | Parallel A input | N | A1 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 4 | Parallel B input | N | B1 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 5 | Parallel C input | N | C1 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 6 | Parallel D input | N | D1 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 7 | Serial left input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 9 | S0 mode select | N | 4/5F pin 3 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 10 | S1 mode select | N | 4/5F pin 6 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 11 | CLK | N | B5M | Input | Check | Visible B5M label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 12 | QD output | N | PBIT2N | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 13 | QC output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 14 | QB output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 4R | 74LS194 | 15 | QA output | N | PBIT2F | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 1 | /CLR | Y | BLANK | Input | Check | Visible BLANK label to clear pin |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 2 | Serial right input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 3 | Parallel A input | N | A2 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 4 | Parallel B input | N | B2 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 5 | Parallel C input | N | C2 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 6 | Parallel D input | N | D2 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 7 | Serial left input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 9 | S0 mode select | N | 4/5F pin 3 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 10 | S1 mode select | N | 4/5F pin 6 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 11 | CLK | N | B5M | Input | Check | Visible B5M label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 12 | QD output | N | PBIT1N | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 13 | QC output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 14 | QB output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 3P | 74LS194 | 15 | QA output | N | PBIT1F | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 1 | /CLR | Y | BLANK | Input | Check | Visible BLANK label to clear pin |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 2 | Serial right input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 3 | Parallel A input | N | A3 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 4 | Parallel B input | N | B3 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 5 | Parallel C input | N | C3 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 6 | Parallel D input | N | D3 | Input | Check | Visible input label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 7 | Serial left input | N | Tied ground | Input | Check | Visible ground tie |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 9 | S0 mode select | N | 4/5F pin 3 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 10 | S1 mode select | N | 4/5F pin 6 mode rail | Input | Check | Mode rail noted by existing audit; visually confirm exact rail label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 11 | CLK | N | B5M | Input | Check | Visible B5M label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 12 | QD output | N | PBIT0N | Output | Check | Visible output label |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 13 | QC output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 14 | QB output | N | Intermediate tap | Output | Check | Pin visible; no local off-sheet label visible |
+| 3B | Master | Playfield Pixel Shift | 3R | 74LS194 | 15 | QA output | N | PBIT0F | Output | Check | Visible output label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 1 | Select | N | COCKTAIL | Input | Check | Seeded from playfield audit; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 2 | A input | N | PBIT0N | Input | Check | Normal playfield bit 0; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 3 | B input | N | PBIT0F | Input | Check | Flipped playfield bit 0; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 4 | Y output | N | PBIT0 | Output | Check | Output to Sheet 4B color path |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 5 | A input | N | PBIT1N | Input | Check | Normal playfield bit 1; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 6 | B input | N | PBIT1F | Input | Check | Flipped playfield bit 1; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 7 | Y output | N | PBIT1 | Output | Check | Output to Sheet 4B color path |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 9 | Y output | N | PBIT3 | Output | Check | Output to Sheet 4B color path |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 10 | B input | N | PBIT3F | Input | Check | Flipped playfield bit 3; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 11 | A input | N | PBIT3N | Input | Check | Normal playfield bit 3; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 12 | Y output | N | PBIT2 | Output | Check | Output to Sheet 4B color path |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 13 | B input | N | PBIT2F | Input | Check | Flipped playfield bit 2; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 14 | A input | N | PBIT2N | Input | Check | Normal playfield bit 2; visually confirm label |
+| 3B | Master | Playfield Cocktail Mux | 4N | 74LS157 | 15 | /G enable | Y | Tied active / ground | Input | Check | LS157 enable expected active; visually confirm |
+| 3B | Master | Playfield Shift Mode | 4/5F | 74LS00 | 3 | LS194 S0 mode output | N | S0 rail to LS194 pin 9 | Output | High | PDF Sheet 3B audit says pin 3 drives S0 |
+| 3B | Master | Playfield Shift Mode | 4/5F | 74LS00 | 6 | LS194 S1 mode output | N | S1 rail to LS194 pin 10 | Output | High | PDF Sheet 3B audit says pin 6 drives S1 |
+| 3B | Master | Playfield Shift Mode | 4/5E | 74LS04 | 1 | Inverter input | N | COCKTAIL | Input | Check | Visible near LS194 output rails; confirm exact package half |
+| 3B | Master | Playfield Shift Mode | 4/5E | 74LS04 | 2 | Inverter output | Y | Inverted COCKTAIL rail | Output | Check | Visible output into normal/flipped rail selection; confirm exact destination |
+| 3B | Master | Playfield Shift Mode | 4/5E | 74LS04 | 13 | Inverter input | N | COCKTAIL/local rail | Input | Check | Second visible inverter near LS194 output rails; confirm exact package half |
+| 3B | Master | Playfield Shift Mode | 4/5E | 74LS04 | 12 | Inverter output | Y | Inverted COCKTAIL/local rail | Output | Check | Second visible inverter output; confirm exact destination |
+
+## Notes
+
+- `Check` rows are seeded from the current schematic audits and visual sheet crops where noted; they are not final schematic facts.
+- Preserve reviewer edits in the CSV/Numbers file when syncing this Markdown.
