@@ -17,7 +17,7 @@ Long-term goal: progressively improve the core through visual audits of schemati
 
 ## Installation
 
-1. Copy `releases/CloakAndDagger_20261011.rbf` to `/_Arcade/cores/`.
+1. Copy `releases/Arcade-CloakAndDagger_20261011.rbf` to `/_Arcade/cores/` as `CloakAndDagger_20261011.rbf`. The official Distribution installer removes the `Arcade-` prefix.
 2. Copy `releases/Cloak & Dagger (rev 5).mra` to `/_Arcade/`.
 3. Supply your legally obtained `cloak.zip` in `/games/mame/` and launch the MRA.
 
@@ -74,6 +74,6 @@ The supplied release RBF is the previously tested build. A newly compiled RBF sh
 
 **Release SHA-256:**
 
-`CloakAndDagger_20261011.rbf`
+`Arcade-CloakAndDagger_20261011.rbf`
 
 `9889ae577bb524bcd6f7e2ef5da0eb75cc6b9f9d52a16647a6b77d839a82036b`
