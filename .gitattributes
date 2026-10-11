@@ -1,0 +1,2 @@
+# Preserve the validated mixed line endings; do not rewrite fitted inputs.
+* -text

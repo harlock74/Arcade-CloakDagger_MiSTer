@@ -1,0 +1,16 @@
+# Scoped owner licence
+
+harlock74 grants GNU General Public License version 3 or (at your option)
+any later version (GPL-3.0-or-later) for original Cloak & Dagger contributions
+only, to the extent harlock74 controls copyright in them.
+The complete terms are in LICENSES/GPL-3.0.txt.
+
+This covers original project RTL expression, original project-specific MiSTer
+integration, original tests/tools, documentation and MRA expression. It does
+not grant ownership of whole mixed-source files. Adapted MAME expression,
+MiSTer framework/interface text, T65, MikeJ POKEY, Intel/Altera IP and
+licence texts retain their original notices and restrictions. Configuration
+and generated files are not automatically assigned whole-file owner authorship.
+
+This scoped grant does not resolve third-party compatibility. See NOTICE.md,
+docs/LICENSING.md and the retained source headers. Preserve inherited terms.

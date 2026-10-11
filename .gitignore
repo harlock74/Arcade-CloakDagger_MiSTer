@@ -1,0 +1,15 @@
+/publication/
+/work/
+/build/
+/output_files/
+/db/
+/incremental_db/
+/build_id.v
+/jtag.cdf
+*.qws
+*.qdf
+*.smsg
+*.sof
+*.vcd
+__pycache__/
+.DS_Store
