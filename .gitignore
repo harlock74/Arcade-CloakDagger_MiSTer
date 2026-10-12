@@ -1,15 +1,11 @@
-/publication/
-/work/
-/build/
-/output_files/
+# Generated Quartus output (source, IP and releases remain tracked).
 /db/
 /incremental_db/
-/build_id.v
-/jtag.cdf
+/output_files/
+/greybox_tmp/
+/hc_output/
+/.qsys_edit/
+/hps_isw_handoff/
 *.qws
-*.qdf
-*.smsg
-*.sof
-*.vcd
-__pycache__/
+._*
 .DS_Store
