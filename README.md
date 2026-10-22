@@ -6,7 +6,11 @@ FPGA implementation of **Cloak & Dagger**, originally released by Atari, Inc. in
 
 Current status: functional behavioural implementation, mainly based on MAME/reference behaviour.
 
-Long-term goal: progressively improve the core through visual audits of schematic sheets and move it closer to a schematic-aligned implementation where possible.
+## How this core was developed
+
+This core was developed with the help of AI coding tools, which I used to write the code where my own experience fell short. Its current behaviour is largely based on MAME.
+
+I have compiled a netlist from the original Cloak & Dagger manuals, and I am now refactoring the core against it one circuit at a time, so that it moves closer to the original hardware.
 
 ## Screenshots
 
