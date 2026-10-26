@@ -21,7 +21,7 @@ I have compiled a netlist from the original Cloak & Dagger manuals, and I am now
 
 ## Installation
 
-1. Copy `releases/Arcade-CloakAndDagger_20261011.rbf` to `/_Arcade/cores/` as `CloakAndDagger_20261011.rbf`. The official Distribution installer removes the `Arcade-` prefix.
+1. Copy `releases/Arcade-CloakAndDagger_20261026.rbf` to `/_Arcade/cores/` as `CloakAndDagger_20261026.rbf`. The official Distribution installer removes the `Arcade-` prefix.
 2. Copy `releases/Cloak & Dagger (rev 5).mra` to `/_Arcade/`.
 3. Supply your legally obtained `cloak.zip` in `/games/mame/` and launch the MRA.
 
@@ -78,6 +78,6 @@ The supplied release RBF is the previously tested build. A newly compiled RBF sh
 
 **Release SHA-256:**
 
-`Arcade-CloakAndDagger_20261011.rbf`
+`Arcade-CloakAndDagger_20261026.rbf`
 
-`9889ae577bb524bcd6f7e2ef5da0eb75cc6b9f9d52a16647a6b77d839a82036b`
+`f589081a3bf7722bcaeb91379d938aaa21499b95db9a39a298b88dcd23589066`

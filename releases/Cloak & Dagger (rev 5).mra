@@ -17,6 +17,7 @@
     <special_controls>Twin stick</special_controls>
     <num_buttons>5</num_buttons>
     <button_names>Fire Left,Fire Right,Fire Up,Fire Down,Igniter</button_names>
+    <buttons names="Fire Left,Fire Right,Fire Up,Fire Down,Igniter,Start 1P,Start 2P,Coin" default="Y,A,X,B,R,Start,L,Select"/>
 
     <rom index="0" zip="cloak.zip" md5="none">
         <!-- Master CPU: 0x0C000 bytes -->
